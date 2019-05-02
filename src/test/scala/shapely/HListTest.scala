@@ -3,32 +3,32 @@ package shapely
 object HListTest {
 
   {
-    val xs = 1 :: false :: "hi" :: HNil
+    val xs = 1 :: false :: "hi" :: HNil()
 
     xs.head: Int
   }
 
   {
-    val xs: Int :: Boolean :: HNil = 1 :: false :: HNil
+    val xs: Int :: Boolean :: HNil = 1 :: false :: HNil()
 
     xs.tail.head: Boolean
   }
 
   {
-    val xs = (1 :: HNil) ++ (false :: HNil)
+    val xs = (1 :: HNil()) ++ (false :: HNil())
 
     xs.tail.head: Boolean
   }
 
   {
-    val xs = 1 :: false :: HNil
+    val xs = 1 :: false :: HNil()
 
     xs.remove[Int].head: Boolean
     xs.remove[Boolean].head: Int
   }
 
   {
-    val xs = 1 :: false :: HNil
+    val xs = 1 :: false :: HNil()
 
     object doubleFlip extends Poly {
       implicit val i = at[Int] { _ * 2 }
@@ -45,9 +45,9 @@ object HListTest {
   }
 
   {
-    val xs = 1 :: false :: HNil
+    val xs = 1 :: false :: HNil()
 
-    xs.nth(0)
-    xs.nth(1)
+    xs.nth(_0)
+    xs.nth(_1)
   }
 }
